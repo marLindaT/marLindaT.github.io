@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Arcade SHooter </title>
+
+	</head>
+	
+<style type="text/css">
+*{
+	box-sizing: border-box;
+}
+
+.unselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.controlBtn{
+	border-radius: 3px;
+	width: 32%;
+	margin: 0;
+	padding: 5px;
+	height: 15vh;
+	background: green;
+	color: white;
+}
+.controlBtn:active{
+	border-radius: 3px;
+	width: 32%;
+	margin: 0;
+	padding: 5px;
+	height: 15vh;
+	background: red;
+}
+#startBtn{
+	background: yellow;
+	color: purple;
+
+}
+
+
+</style>
+	
+<body>
+
+<div id="container">
+
+
+	<canvas id='canvas'>canvas not supported</canvas>
+	<br>
+
+<div id="controlBtnCluster">
+
+	<button id = "leftBtn" class="controlBtn controlBtn">LEFT</button>
+	<button id = "rightBtn" class="controlBtn controlBtn">RIGHT</button>
+	<button id = "shootBtn" class="controlBtn controlBtn">SHOOT</button>
+
+</div>
+
+<button id="startBtn" class="controlBtn controlBtn">START/PAUSE</button>
+
+</div>
+
+<script>
+
+let canvas = document.getElementById("canvas"); 
+let ctx = canvas.getContext("2d");
+
+let WIDTH = 300;
+let HEIGHT = 150;
+
+let controlBtnCluster = document.getElementById("controlBtnCluster");
+controlBtnCluster.style.width = WIDTH+"px";
+
+let leftBtn = document.getElementById("leftBtn");
+let rightBtn = document.getElementById("rightBtn");
+let shootBtn = document.getElementById("shootBtn");
+let startBtn = document.getElementById("startBtn");
+
+startBtn.style.width = WIDTH+"px";
+
+canvas.style.backgroundColor="black";
+canvas.style.width = WIDTH+'px';
+canvas.style.height = WIDTH+'px';
+
+let LEFT = false;
+let RIGHT = false;
+let SHOOT = false;
+
+
+let PLAY = false;
+let level = 1;
+let lives = 15;
+let score = 0;
+let enemiesDestroyed =0;
+
+let enemyArr =[];
+let lastEnemyTime = new Date();
+
+function random(min, max){
+	return Math.floor((Math.random()*(max-min))+min);
+}
+
+class Hero{
+	constructor(){
+		this.x = 150;
+		this.y = 135;
+		this.color = "blue";
+		this.width = 20;
+		this.height = 10;
+		this.speed = 3;
+		this.laserSpeed = 7;
+		this.laserArr = [];
+		this.laserArrLength = 1;
+		this.playerArr = [];
+		this.lives = 3;
+	}
+	drawHero(){
+		if(this.playerArr.length != null){
+		ctx.fillStyle = this.color;
+		ctx.fillRect(this.x, this.y, this.width, this.height);
+	}
+	}
+	updateHeroPosition(){
+		if(this.playerArr.length != null){
+		if(LEFT && this.x >0){this.x -= this.speed};
+		if(RIGHT && this.x<WIDTH-this.width){this.x += this.speed};
+	}	
+	}
+	shootHeroLaser(){
+		if(this.playerArr.length != null){
+		if(SHOOT && this.laserArr.length < this.laserArrLength){
+			this.laserArr.push({x:this.x+(this.width/2), y:this.y, width:5, height:15,});
+			SHOOT = false;
+			console.log(this.laserArr);
+		}
+		}
+	}
+	updateHeroLaser(){
+		for(let i=0; i<this.laserArr.length; i++){
+			this.laserArr[i].y-=this.laserSpeed;
+			
+			if(this.laserArr[i].y <-10){
+				this.laserArr.splice(i,1);
+			}else{
+			ctx.fillStyle = "green";
+			ctx.fillRect(this.laserArr[i].x, this.laserArr[i].y, this.laserArr[i].width, this.laserArr[i].height);
+			}
+		}
+	}
+
+}
+
+class Enemy{
+	constructor(){
+		this.x = random(10, WIDTH);
+		this.y = random(0, -25);
+		this.width = 15;
+		this.height = 7;
+		this.color="red";
+		this.speed = 0.5 + (0.2*(level-1));
+
+	}
+}
+
+function createEnemies(num){
+	for(let i=0; i<num; i++){
+		let enemy = new Enemy();
+		enemyArr.push(enemy);
+	}
+}
+
+function moveAndDrawEnemies(arr){
+	for(let i=0; i<arr.length; i++){
+			
+		if(arr[i].x >arr[i].width && arr[i].x < WIDTH-arr[i].width){
+			arr[i].x+= random(-4,5);	
+		}else  if(arr[i].x <= arr[i].width){
+			arr[i].x+= random(5,15);
+		}else  if(arr[i].x >= WIDTH-arr[i].width){
+			arr[i].x-= random(5,15);
+		}
+
+		arr[i].y+= arr[i].speed;
+
+		if(arr[i].y > HEIGHT){
+			arr.splice(i,1);
+		}else{
+		ctx.fillStyle = "red";
+		ctx.fillRect(arr[i].x, arr[i].y, arr[i].width, arr[i].height);
+	}
+		
+	}
+}
+
+//need a modified function to alter score or end game
+function detectCollision(arr1, arr2){
+
+if(arr1.length>0 && arr2.length>0){
+	for(let i = 0; i<arr1.length; i++){
+	for(let j=0; j<arr2.length; j++){
+//line 148 throws error "Uncaught Type error cannot read property "x" of undefined		
+		if(arr1[i].x < arr2[j].x + arr2[j].width &&
+		 arr1[i].x + arr1[i].width > arr2[j].x && 
+			arr1[i].y < arr2[j].y + arr2[j].height && 
+			arr1[i].y + arr1[i].height > arr2[j].y)
+		{
+
+			arr1.splice(i,1);
+//sloppy to increment score and lives for collisions
+			if(arr1 == enemyArr && arr2 == player1.playerArr){
+				lives -=1;
+			}
+			if(arr1 == enemyArr && arr2 == player1.laserArr){
+				score += 100;
+				enemiesDestroyed +=1;
+			}
+// detectCollision(enemyArr, player1.playerArr);
+
+// 		detectCollision(enemyArr, player1.laserArr);
+
+
+		}
+	}
+	}
+}
+}
+
+function keyPressLogger(e){
+	//console.log(e.keyCode);
+	if(e.keyCode == 38){SHOOT = true;}
+	if(e.keyCode == 37){LEFT = true;}
+	if(e.keyCode == 39){RIGHT = true;}
+}
+function keyReleaseLogger(e){
+	//console.log(e.keyCode);
+	//if(e.keyCode == 38){SHOOT = false;}
+	if(e.keyCode == 37){LEFT = false;}
+	if(e.keyCode == 39){RIGHT = false;}
+}
+
+
+let player1 = new Hero();
+player1.playerArr.push(player1);
+createEnemies(random(2,10));
+
+
+function writeText(text, x,y){
+	ctx.font = "10px Arial";
+	ctx.fillStyle = "white";
+	ctx.fillText(text, x, y );
+}
+
+function toggleStart(){
+	if(PLAY == true){
+		PLAY = false;
+	}else if (PLAY == false){
+		PLAY = true;
+		mainLoop();
+	}
+};
+
+function gameOver(){
+	alert("You Lost");
+	return confirm("Would you like to play again?")
+}
+
+
+function clear(){
+	ctx.clearRect(0,0,WIDTH, WIDTH);
+}
+
+startBtn.addEventListener("click", toggleStart, false);
+
+document.addEventListener("keydown", keyPressLogger, false);
+document.addEventListener("keyup", keyReleaseLogger, false);
+
+
+
+leftBtn.addEventListener("touchstart", function(){LEFT=true}, false);
+leftBtn.addEventListener("touchend", function(){LEFT=false}, false);
+
+rightBtn.addEventListener("touchstart", function(){RIGHT=true}, false);
+rightBtn.addEventListener("touchend", function(){RIGHT=false}, false);
+
+shootBtn.addEventListener("touchstart", function(){SHOOT=true}, false);
+shootBtn.addEventListener("touchend", function(){SHOOT=false}, false);
+
+function mainLoop(){
+	if(PLAY){
+
+		clear();
+//display score lives and kills on canvas
+		writeText(`SCORE:${score}`, 5, 15);
+		writeText(`LIVES:${lives}`, 5, 25);
+		writeText(`KILLS:${enemiesDestroyed}`,5, 35);
+		writeText(`LEVEL:${level}`,250, 15);
+
+		//spawn new enemies
+		let newEnemyTime = new Date();
+		if(newEnemyTime - lastEnemyTime > (1000-level*30)){
+			createEnemies(2*level,8*level);
+			lastEnemyTime = new Date();
+		}
+
+		
+
+		player1.updateHeroPosition();
+		player1.updateHeroLaser();
+		player1.shootHeroLaser();
+
+		player1.drawHero();
+
+		moveAndDrawEnemies(enemyArr);
+
+		detectCollision(enemyArr, player1.playerArr);
+
+		detectCollision(enemyArr, player1.laserArr);
+
+//adjust lives with score
+		if(score ==2500){
+			score-=2500;
+			lives+=1;
+			
+		}
+//adjust level with KIA
+		if(enemiesDestroyed >10 &&enemiesDestroyed<20){
+			level = 2;
+		}else if(enemiesDestroyed >30 &&enemiesDestroyed<40){
+			level = 3;
+		}else if(enemiesDestroyed >40 &&enemiesDestroyed<50){
+			level = 4;
+		}else if(enemiesDestroyed >50 &&enemiesDestroyed<60){
+			level = 5;
+		}else if(enemiesDestroyed >60 &&enemiesDestroyed<70){
+			level = 6;
+		}else if(enemiesDestroyed >70 &&enemiesDestroyed<80){
+			level = 7;
+		}else if(enemiesDestroyed >80 &&enemiesDestroyed<90){
+			level = 8;
+		}else if(enemiesDestroyed >90 &&enemiesDestroyed<100){
+			level = 9;
+		}else if(enemiesDestroyed >100 &&enemiesDestroyed<200){
+			level = 10;
+		}			
+//end of game condition and handling
+//error here...enemy speed not slowing on new game
+//some games may not reload....
+		if(lives<0){
+			PLAY = false;
+			if(gameOver()){
+				level = 0;
+				lives =15;
+				score = 0;
+				PLAY = true;
+				
+				mainLoop();
+			}
+		}
+
+		requestAnimationFrame(mainLoop);
+}
+}
+
+mainLoop();
+
+
+</script>
+
+</body>
+</html>
