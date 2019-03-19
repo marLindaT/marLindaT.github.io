@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Supercritical Extraction Of A Botanical Drug Substance</title>
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Google icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+<style>
+/*
+*{
+	border: 1px dashed black;
+}
+*/
+:root{
+	background-color: #e0e0d1;
+	font-family: Arial;
+
+}
+
+/************ ID NAVBAR *****************/
+#Main_Header_Title{
+	font-size: 3vw;
+	font-weight: bold;
+	color: #002db3 ;
+	text-shadow: 1px 1px black;
+}
+#Main_Header{
+	position: relative;
+	left: 140px;
+}
+
+
+#navbar{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	
+}
+
+
+/**********END ID NAVBAR *************/
+
+
+/**********Dropdown Nav CSS**************/
+.dropdown{
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown:hover .dropdown-content{
+	display: block;
+}
+.dropdown:hover .dropdown-btn{
+	background-color:#002db3;
+	color: white;
+}
+
+.dropdown-btn{
+	position: fixed;
+	top:0;
+	left:0;
+
+	background-color: #99b3ff;
+	min-width: 90px;
+	max-width: auto;
+	height: 60px;
+	color: black;
+	padding: 15px;
+	font-size: 1vw;
+	font-weight: bold;
+	border-radius: 5px;
+}
+.dropdown-content{
+	background-color:#e6ecff;
+	display: none;
+	position: fixed;
+	top:60px;
+	left: 0px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	border-radius: 5px;
+}
+.nav-link{
+	display: block;
+	text-decoration: none;
+	padding: 5px;
+	text-decoration: none;
+	color: black;
+	border-radius: 5px;
+}
+.nav-link:hover{
+	background-color:#002db3;
+	color: white;
+}
+/************ END DROPDOWN NAVBAR************/
+
+/*******PAGE LAYOUT FOR DEVICES OTHER THAN MOBILE *******/
+
+@media (min-width: 500px){
+
+#main-doc{
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(13,minmax(250px, auto));
+	grid-gap: 0.5vw;
+	text-align: center;
+}
+#Process_Overview{
+	grid-column:2/5 ;
+	grid-row:1/3 ;
+}
+#Milling{
+	grid-column: 2/5 ;
+	grid-row:3/5 ;
+}
+#Decarboxylation{
+	grid-column: 2/5 ;
+	grid-row:5/7 ;
+}
+#Supercritical_Extraction{
+	grid-column: 2/5 ;
+	grid-row:7/9 ;
+}
+#Post_Processing{
+	grid-column: 2/5 ;
+	grid-row:9/11 ;
+}
+#Final_Product{
+	grid-column: 2/5 ;
+	grid-row:11/13 ;
+}
+#Further_Reading{
+	grid-column: 2/5 ;
+	grid-row:13/14 ;
+}
+
+
+
+
+
+}
+
+
+
+/************* END DESKTOP LAYOUT ******************/
+ol{
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+
+}
+
+li{
+	padding: 5px;
+	list-style: lower-roman inside;
+}
+li > a{
+	text-decoration: none;
+	color: inherit;
+}
+
+
+/************FOOTER *************/
+footer{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+/*******************END OF FOOTER ***************/
+#Back_To_Top > a {
+	text-decoration: none;
+}
+
+p{
+	line-height: 1.6;
+}
+
+code{
+	display: block;
+	padding: 15px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav id='navbar'>
+
+<header id="Main_Header">
+		<h1 id='Main_Header_Title'>Supercritical Extraction Of a Botanical Drug Substance</h1>
+	</header>
+	
+	<nav class='dropdown'>
+		<button class='dropdown-btn'>Directory</button>
+			<div class='dropdown-content'>
+				<a class='nav-link' href="#Process_Overview">Process Overview</a>
+				<a class='nav-link' href="#Milling">Milling</a>
+				<a class='nav-link' href="#Decarboxylation">Decarboxylation</a>
+				<a class='nav-link' href="#Supercritical_Extraction">Supercritical Extraction</a>
+				<a class='nav-link' href="#Post_Processing">Post Processing</a>
+				<a class='nav-link' href="#Final_Product">Final Product</a>
+				<a class='nav-link' href="#Further_Reading">Further Reading</a>	
+
+			</div>
+	</nav>
+	
+
+</nav>
+
+
+
+
+<main id='main-doc'>
+
+<section id='Process_Overview' class='main-section'>
+	<header class='section_header'>
+		<h2 class='section_header_title'>Process Overview</h2>
+	</header>
+
+	<p>
+		Many pharmaceutical products are based off of existing natural products that already exist in naturally occuring biosynthetic pathways. It can often be more cost effective to isolate an active pharmaceutical ingredient (API) from a natural source than to synthesize the same compound in a lab.  The complexity of many naturally occuring compounds can be cost prohibitive to create in a lab where stereospecific requirements in a final product are paramount for proper receptor interactions within a host. Additionally common in complex synthetic schemes cycles of protecting and deprotecting steps can often inflate an otherwise concise synthetic scheme into an unmanageable protocol. 
+	</p>
+	<p>
+		There has been a recent resurgence in exploring old technologies to obtain natural compounds from botanical sources. One such methodology is the extraction of cannabinoids from the <i>Cannabis sativa </i>plant. <a href="https://en.wikipedia.org/wiki/Supercritical_fluid"> Supercritical</a> CO<sub>2</sub> extractions of such material has been found to have many advantages other extraction methods such as solid-liquid extraction with either alcohols or hydrocarbons such as butane. Supercritical CO<sub>2</sub> extractions offer a large degree of control and tunability since the degree to which the solvent (CO<sub>2</sub>) solvates the cannabinoids can be altered with changing temperature and pressure. Indeed even subcritical CO<sub>2</sub> extractions of cannabis material have been shown to be effective in collecting cannabinoids from plant material largely devoid of unwanted plant fats and waxes. 
+
+	</p>
+	<p>
+		The following shall serve as a brief account of a typical method for the extraction of cannabinoids from a botanical drug substance using  supercritical CO<sub>2</sub> as an extraction solvent. This method features a decarboxylation step to activate the acidic cannabinoids and increase their solubility in CO<sub>2</sub> and a post processing step to remove the majority of unwanted plant fats and waxes. 
+	</p>
+	<h2> Outline of The Major Steps Detailed Below</h2>
+	<ol id='Directory_List'>
+		<li><a href='#Milling'>Milling</a></li>
+		<li><a href='#Supercritical_Extraction'>Supercritical Extraction</a></li>
+		<li><a href='#Post_Processing'>Post Processing: Winterisation</a></li>
+		<li><a href='#Final_Product'>Final Product</a></li>
+		<li><a href='#Further_Reading'>Further Reading</a></li>
+	</ol>	
+
+</section>
+
+
+<section id='Milling' class='main-section'>
+
+	<header class='section_header'>
+		<h2 class='section_header_title'>Milling</h2>
+	</header>
+
+	<p>
+		Mechanical breakdown of the botanical drug substance is typically accomplished using an industrial strength mill. Of critical importance is the ability of the operator to control the resulting particle size distribution of the milled material.  By changing perforated screens to different sizes the particle size of the milled cannabis can be influenced and allows for better control of the process. 
+	</p>
+
+	<p>
+		Particle sizes plays a critical role in the efficient extraction of a botanical drug substance when using supercritical CO<sub>2</sub>.  In the extraction vessel the material is packed tightly to prevent channeling of CO<sub>2</sub> around the material. An efficient extraction will force the solvent (CO<sub>2</sub>) through the material allowing it to fully come into contact with the substrate to maximize the potential of mass transfer from the extraction material (botanical drug substance) to the solvent (CO<sub>2</sub>). If the particle size is too large there is a loss of extraction efficiencty due to a reduced surface area (less interface for the phases to interact with one another). If the particle size is too small there is an increased resistance to the flux of CO<sub>2</sub> which will cause the CO<sub>2</sub> to either find or create small holes in the substrate (often referred to as channels) and flow through the material with limited interaction with the material. 
+	</p>
+
+	<p>
+		It is also common to use a cryogenic cooling agent such as liquid nitrogen to help flash freeze the botanical drug substance. By freezing the plant material is turns the water and any resinous compounds into a solid crystal structure (ice) and prevents the moisture and resins from gumming and clogging the pores of the milling apparatus. 
+	</p>
+
+
+</section>
+
+
+
+<section id='Decarboxylation' class='main-section'>
+
+	<header class='section_header'>
+		<h2 class='section_header_title'>Decarboxylation</h2>
+	</header>
+
+	<p>
+		In the case of <i>Cannabis sativa</i> it is necessary to decarboxylate the plant material if the final product is to be consumed orally or without sufficient heating.  <i>Cannabis sativa</i> has a plethora of biologically active cannabinoids, but these cannabinoids are naturally occuring in their acidic forms which are not biologically available. Decarboxylation is the application of heat over time to convert these acids into their biologically available derivatives. The two most abundant of these cannabinoids are THC (tetrahydrocannabinol) and CBD (cannabidiol), which both occur predominantly in their acidic forms in living <i>Cannabis sativa</i> plants as tetrahydrocannabinol acid (THCa) and cannabidiol acid (CBDa) respectively. The decarboxylation of these two species can be represented as follows:
+
+	</p>
+
+			<code>THCa + heat --> THC + CO<sub>2</sub></code>
+			<code>CBDa + heat --> CBD + CO<sub>2</sub></code>
+
+	<p>
+		Special care must be taken to avoid overheating THC rich materials since THC is prone to oxidation to the corresponding aromatic system- cannabinol (CBN).  Although CBN does have pharmacological value end products that desire the psychoactive effect of THC would do well to avoid forming CBN due to its agonistic effect on the CB<sub>1</sub> receptors. (The metabolism, activity and effects of various cannabinoids and their interactions is beyond the scope of this document.)
+	</p>
+			<code>THC +heat --> CBN</code>
+			<code>THC + light --> CBN</code>
+			<code>THCa +heat --> CBNa + heat-->CBN</code>
+
+
+</section>
+
+
+
+
+<section id='Supercritical_Extraction' class='main-section'>
+
+	<header class='section_header'>
+		<h2 class='section_header_title'>Supercritical Extraction</h2>
+	</header>
+
+
+	<p>
+		Extractions of botanical drug substance using CO<sub>2</sub> in either its supercritical or at subcritical conditions require special infrastructure. Typical instruments feature one or more temperature controlled extraction columns that are capable of safely holding pressures in excess of 6000 PSI. These extraction columns are then connected to a set of collector columns plumbed in series. Between the extractor and collector columns and between each collector column there is typically a back pressure regulator device (BPR) which is adjustable. These BPRs effectively restrict the flow of fluids (CO<sub>2</sub>) by remaining in a closed position until a sufficient pressure exerts force to open a valve which then allows fluid to spill through. Such BPR devices can be thought as acting similar to a damn, restricting the flow of fluid until a threshold pressure is reached and allowing the spill-over to flow into the next column. The conditions in the extractor column control how the extraction is run in terms of temperature and pressure and thusly the related density of the CO<sub>2</sub> that is extracting the material. Each of the collector columns is typically set with a threshold pressure lower than that of the extraction column and lower than that of the column that is in series before. Sequentially decreasing pressure in such a way causes the flux of CO<sub>2</sub> to loose its ability to solvate the API and effectively results in the solute precipitating out of the solvent into the collecting columns.
+	</p>
+	<p>
+		Varying the temperature and pressue of the collecting columns it is possible to fractionate the effluenct from the extraction columns as an integrated method of crude material purification. A discussion regarrding the optimization of collecting column parameters is beyond the scope of this document. 
+	</p>
+
+	<p>
+		Extractions using supercriticial (and subcritical) CO<sub>2</sub> rely upon the ability of CO<sub>2</sub> to act as a solvent. On a molecular level the solvent must solvate the botanical drug substance (solute) through some means of intermolecular interactions. Intermolecular attractions (or repulsions) are typically based upon electrostatic forces resulting from either transient dipoles created from the flux of a molecule's electron cloud (London dispersion type) or from permanent dipoles that can interact (such as hydrogen bonding). The greater the attractive forces between the solvent and solute the greater the solubility of the system. 
+	</p>
+	<p>
+		The propensity for CO<sub>2</sub> to solvate is proportional to its density. Any factors that alter the density of CO<sub>2</sub>through the system have the ability to alter the extraction capabilities of that extraction system. Density -  an intensive property- is the ratio of mass and volume (both extensive properties), and often by changing the volume per unit mass of CO<sub>2</sub> it is possible to directly affect the solvating power in supercritical CO<sub>2</sub> extractions. Increasing pressure will cause an increase in the density of supercritical CO<sub>2</sub> whereas increasing the temperature will decrease the density both of which will have a direct influence on the extraction. (See <a href="https://en.wikipedia.org/wiki/Raoult%27s_law" >Raoult's Law</a>)
+	</p>
+	<p>
+		The composition of the input botanical drug substance will also play a large role in the conditions required for an efficient extraction (maximum API recovered and minimum plant matrix).  For example <i>Cannabis sativa</i> which contains predominantly CBD or THC (after decarboxylation) will require larger amounts of CO<sub>2</sub> for an effective extraction of THC rich input relative to CBD rich input. Extraction of CBD is considerably quicker than THC and so the conditions used for a high CBD botanical input would not be suitable for a high THC botanincal input. 
+	</p>
+
+
+</section>
+
+
+
+<section id='Post_Processing' class='main-section'>
+
+	<header class='section_header'>
+		<h2 class='section_header_title'>Post Processing</h2>
+	</header>
+
+	<p>
+		After extraction the collected crude botanical drug substance can range in composition and texture. In a preferred embodiemnt the crude botanical material will have a creamy consistency that is soft yet solid at room temperature but readily melts to liquid with gentle heat. This crude material is likely rich in active ingredients (such as cannabinoids) and depending upon extraction conditions and starting material can have API concentrations as high as 850 mg/g. 
+	</p>
+	<p>
+		Along with the API is also an abundance of non target compounds including plant waxes and fats and various organic and inorganic compounds. Winterisation is a commonly employed procedure to strip away the fats and waxes that come along in the extraction process. In winterisation the crude botanical drug substance is dissolved in warm ethanol (200 proof)  to create a homogenous ethanolic solution. Anywhere from 2 to 10 mass equivalents of ethanol should be used and in a preferred embodiment 6 equivalents of ethanol to crude material is used.  The ethanolic solution is then cooled to precipitate fats which are then filtered off. 
+	</p>
+	<p>
+		 In a preferred embodiment the ethanolic solution containing the botanical drug substance is cooled for 1 to 2 hours at -80<superscript>o</superscript>C and then cold filtered with a 20 micrometer filter. A second cooling and filtering step is advisable with a smaller filter size (5 micrometer).
+	 </p>
+
+	 <p>
+	 	The resulting filtered ethanolic solution of botanical drugs substance can then be concentrated <i>in vacuo</i> to result in a thick viscous resin that contains up to 85% API. Concentration is readily performed in a bench top rotary evaporator or commercialy available evaporator systems for larger scale production. 
+	 </p>
+
+
+
+</section>
+
+
+
+<section id='Final_Product' class='main-section'>
+
+	<header class='section_header'>
+		<h2 class='section_header_title'>Final Product</h2>
+	</header>
+
+	<p>
+		The final dosage form will dictate how the resin from post-processing will be manipulated.  It is common to blend the final resin with a carrier oil such as coconut oil (medium chain triglycerides) sunflower seed oil or even castor oil.  Final dilution with a carrier oil such as coconut oil will prohibit the final product from being used in any sort of vapourisation capacity as these oils can cause severe lung disease when inhaled. Typically if the final resin is 80% API by mass a 40X dilution will result in a 2% API concentration in the final oil. 
+	</p>
+	<p>
+		Alternatively the final resin can be mixed with naturally occuring terpenoid based solvents that could be saved from the extraction process. These terpenoid solvents can act to reduce the viscosity of the final product, add medicinal benefits and flavour effects. It is common for extracted terpenes to be added back into resins from <i>Cannabis sativa</i> to make a product that can be used in a vaporizing pen cartridge. 
+	</p>
+
+</section>
+
+
+
+
+
+<section id='Further_Reading' class='main-section'>
+
+	<header class='section_header'>
+		<h2 class='section_header_title'>Further Reading</h2>
+	</header>
+
+
+<p>
+	<a href="https://en.wikipedia.org/wiki/Supercritical_fluid">Super critical fluid</a>
+	<br>
+	<a href="https://en.wikipedia.org/wiki/Raoult%27s_law">Raoult's Law</a>
+	<br>
+	<a href="https://en.wikipedia.org/wiki/Decarboxylation">Decarboxylation</a>
+
+
+
+</p>
+
+</section>
+
+
+
+</main>
+
+<footer>
+	<span id='Back_To_Top'><a href='#navbar'>Back To Top</a></span>	
+</footer>
+
+
+
+</body>
+</html>
