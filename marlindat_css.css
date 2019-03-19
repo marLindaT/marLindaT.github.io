@@ -1,0 +1,76 @@
+*{
+	box-sizing: border-box;
+}	
+
+body {
+  font-size: 100%;
+  font-family: 'Cabin Condensed', sans-serif;
+ font-family: 'Poor Story', cursive;
+}
+
+#profile-pic{
+	border-radius: 50%;
+}
+
+
+iframe{
+	border: none;
+	overflow: hidden;
+}
+
+.portfolio-item-title{
+	display: block;
+}
+
+.portfolio-item-description{
+	display: block;
+}
+
+
+#projects{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+/*************** DESKTOP *************/
+@media only screen and (min-width: 700px) {
+  html {
+     background-image: linear-gradient(to right, rgba(0,0,255,0), rgba(0,0,255,0.4));
+     background: rgba(0,0,255,0.3);
+  }
+
+#profile-pic{
+	width: 15vw;
+	height:15vw;
+	
+}
+
+#bio{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+}
+#bio-info{
+	min-width: 60vw;
+	text-align: center;
+	padding: 3vw;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.portfolio-item{
+	width: 30vw;
+	margin: 1vw;
+}
+
+}
+
+
+
+
