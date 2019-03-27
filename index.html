@@ -11,88 +11,122 @@
 
 <title>Marshall | Front End Web Solutions</title>
 
-<!---------------------BOOTSTRAP CDN ---------------->
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 
-
+<!------ GOOGLE FONT ----------------------->
 <link href="https://fonts.googleapis.com/css?family=Poor+Story" rel="stylesheet">
 
-<link rel="stylesheet" type ="text/css" href = "marlindat_css.css">
-
+<!-----------  EXTRABOOTSTRAP STYLING ----------->
+  <link rel="stylesheet" type ="text/css" href = "marlindat_withBootstrap.css">
 
 </head>
 
-
 <body>
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="https://marlindat.github.io/">MarlindaT: Welcome To My Personal Website</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="https://codepen.io/marLindaT/">My Code Pen</a>
+      
+      <a class="nav-item nav-link disabled" href="#">Coming Soon</a>
 
-
-<main>
-
-	<h1>Front End Web Solutions For You</h1>
-
-			
-
-<section id="bio">
-
-	
-	<img id ="profile-pic" src="./profilePic.png" alt="profile picture of a handsome man with an easy smile wearing sunglasses standing infront of lush green vegetation and flamingos">
-
-	<div id="bio-info">
-
-		
-
-		<p> Making custom online solutions available to small business, bloggers and non-profits
-		</p>
-
-		<p>
-			Mild mannered chemist by day, spare time coder at night. Fluent with HTML, CSS, Javascript and Python. Working towards Node PHP and React to broaden my development tool box. 
-		</p>	
-
-		<blockquote>Actively accepting pro bono web development work. </blockquote>
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+  Why is this website incomplete?
+</button>
 
     </div>
+  </div>
+</nav>
 
-</section>
-
-<h2>Some Recent Projects</h2>
-
-<section id ="projects">
+<!------------------MODAL --------------->
 
 
-<div class="portfolio-item">
 
-	<a href="https://marlindat.github.io/javaScriptArcadeShooter.html">
 
-	<span class="portfolio-item-title">JavaScript 2D Shooter</span>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Please Excuse the Mess</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Why is this website incomplete: I am a full time chemist/laboratory manager and volunteer firefighter. Website devlopment is my hobby that I do early in the mornings when I am not working out, exhausted from a late night medical call or working on a data science project. I am in the midst of building this website, and would love to help you with some pro bono work to get your website off the ground- I promise I'll prioritze your project!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-	</a>
+<!---------------END MODAL ---------------->
+
+<main class="container-fluid">
+
+
+
+	<div class="row full-height dessert-pic">
+
+		<h1 class="col-md-4 text-right top-margin">
+			Take the road less travelled...let's build something cool together
+
+		</h1>	
+
+		<p class="col-md-4 offset-md-4 align-self-end" id="intro-p">
+			Let's build your ideal website. I specialize in creating dynamic web content that is both interactive and responsive. Creating a rich user experience is my passion. So lets get started....
+
+		</p>
+
+
+
+
+	</div>
+
+
+</main>
 
 	
+<div class="bg-dark section-title">
+		Some Recent Projects
+</div>
 
-		<iframe src="javaScriptArcadeShooter.html">
+<main class="container">
 
+<section id ="projects" class="row jumbotron">
+
+
+<div class="portfolio-item col-md-4">
+
+	<a href="https://marlindat.github.io/javaScriptArcadeShooter.html">
+		<span class="portfolio-item-title">JavaScript 2D Shooter</span>
+	</a>
+
+		<iframe src="javaScriptArcadeShooter.html" scrolling="no">
 	  		<p>Your browser does not support iframes.</p>
-
 		</iframe>
 
 	
 
-	<span class ="portfolio-item-description">
+	<div class ="portfolio-item-description">
 		A fun 2D "Space Invaders" type shooter. Created using canvas and JavaScript. 
-	</span>
+	</div>
 
 </div>
 
-<div class="portfolio-item">
+<div class="portfolio-item col-md-4">
 
 	<a href="https://marlindat.000webhostapp.com/">
 
@@ -100,18 +134,18 @@
 
 	</a>
 
-		<iframe src="https://marlindat.000webhostapp.com/">
+		<iframe src="https://marlindat.000webhostapp.com/" scrolling="no">
 	  		<p>Your browser does not support iframes.</p>
 		</iframe>
 	
 
-	<span class ="portfolio-item-description">
+	<div class ="portfolio-item-description">
 		This is a classic JavaScript powered to do list. Click/touch a list item to strike it off your list, and click the complete button to remove it.  Local storage is enabled so you can save up to 99 list items to your local host, and retrieve those items even after your session ends. Future iterations will include server support to provide extended accessibility and multiple device access. 
-	</span>
+	</div>
 
 </div>
 
-<div class="portfolio-item">
+<div class="portfolio-item col-md-4">
 
 	<a href="https://marlindat.github.io/buildATechnicalDocumentationPage.html">
 
@@ -120,14 +154,14 @@
 	</a>
 
 	
-		<iframe src="buildATechnicalDocumentationPage.html">
+		<iframe src="buildATechnicalDocumentationPage.html" scrolling="no">
 	  		<p>Your browser does not support iframes.</p>
 		</iframe>
 	
 
-	<span class ="portfolio-item-description">
+	<div class ="portfolio-item-description">
 		A brief overview of the extraction process that is commonly proacticed by the cannabis industry. Featuring a breakdown of the process this technical documentaion page walks a user from raw input of dried cannabis flower, to the final product- cannabis oil fit for oral consumption. 
-	</span>
+	</div>
 
 </div>
 
@@ -136,17 +170,7 @@
 </section>
 
 
-
 </main>
 
-
-<footer>
-</footer>
-
-
-
-	<script src="marlindat_JS.js"></script>
-
 </body>
-
 </html>
