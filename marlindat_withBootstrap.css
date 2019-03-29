@@ -1,3 +1,15 @@
+:root{
+	--main-color: #cf0000;
+
+	--shade0 : #CF0000;    
+	--shade1 : #FF4E4E ;
+	--shade2 : #F91A1A;
+	--shade3 : #A90000 ;
+	--shade4 : #7F0000;
+
+
+}
+
 body{
 	font-family: 'Poor Story', cursive;
 }
@@ -19,7 +31,7 @@ nav{
 
 h1.top-margin{
 	/*margin-top: 5%;*/
-	color: #cf0000;
+	color: var(--shade0);
 	font-size: 3.5em;
 }
 #intro-p{
@@ -31,4 +43,18 @@ h1.top-margin{
 .section-title{
 	color: #ffffff;
 	font-size: 2.5em;
+}
+iframe{
+	display:block;
+}
+
+#recent-projects-title{
+	
+
+}
+#projects{
+	padding-top: 8vh;
+	min-height: 50vh;
+	background-color: var(--shade1);
+
 }
