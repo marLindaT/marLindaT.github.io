@@ -18,20 +18,23 @@ nav{
 }
 
 .full-height{
-	height: 90vh;
+	min-height: 90vh;
+
 }
 
-.dessert-pic{
-	background-image: url("dessertRoad.png");
-	background-color: #ffffff; /*fall back color*/
+.splash-pic{
+/*	background-image: url("dessertRoad.png");  
 	background-repeat: no-repeat;
 	background-size: cover;
+*/
+	background-color: var(--shade0); /*fall back color*/
+	
 
 }
 
 h1.top-margin{
 	/*margin-top: 5%;*/
-	color: var(--shade0);
+	color: #ffffff;
 	font-size: 3.5em;
 }
 #intro-p{
@@ -55,6 +58,10 @@ iframe{
 #projects{
 	padding-top: 8vh;
 	min-height: 50vh;
-	background-color: var(--shade1);
+	background-color: #ffffff;
 
+}
+
+.portfolio-item-description{
+	color:var(--shade0);
 }
